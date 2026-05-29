@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import './App.css';
 import Sidebar from './components/layout/Sidebar';
 import NetworkPage from './pages/NetworkPage';
 import ClientsPage from './pages/ClientsPage';
 import ConfigPage from './pages/ConfigPage';
-import styles from './App.module.css';
 
 const pages = {
   red: NetworkPage,
@@ -16,11 +16,9 @@ export default function App() {
   const Page = pages[activePage];
 
   return (
-    <div className={styles.app}>
+    <div className="flex min-h-screen bg-background-deep">
       <Sidebar activePage={activePage} onNavigate={setActivePage} />
-      <main className={styles.main}>
-        <Page />
-      </main>
+      <Page />
     </div>
   );
 }

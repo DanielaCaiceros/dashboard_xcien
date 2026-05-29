@@ -1,51 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
 
-:root {
-  --primary: #009B3E;
-  --primary-dark: #006B2B;
-  --primary-light: #00C94F;
-  --secondary: #007BFF;
-  --secondary-dark: #0056B3;
-  --tertiary: #DBE2DD;
-  --neutral: #1D1E20;
-  --neutral-800: #26272A;
-  --neutral-700: #2F3033;
-  --neutral-600: #3A3B3F;
-  --neutral-500: #52535A;
-  --neutral-400: #6E6F78;
-  --neutral-300: #9B9CA6;
-  --neutral-200: #C4C5CE;
-  --neutral-100: #E8E9F0;
-  --text-primary: #FFFFFF;
-  --text-secondary: #9B9CA6;
-  --text-muted: #6E6F78;
-  --success: #009B3E;
-  --warning: #F59E0B;
-  --danger: #EF4444;
-  --border: #2F3033;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-family: 'Material Symbols Outlined';
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background-color: var(--neutral);
-  color: var(--text-primary);
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
+  background-color: #0B0C0E;
+  color: #e3e2e4;
+  font-family: 'Hanken Grotesk', sans-serif;
 }
 
-button {
-  cursor: pointer;
-  font-family: inherit;
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: #121315; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #3e4a3d; }
+
+.glass-panel {
+  background: rgba(29, 30, 32, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+.status-indicator-green { border-top: 2px solid #009B3E; }
+.status-indicator-yellow { border-top: 2px solid #FFB800; }
+.status-indicator-red { border-top: 2px solid #FF3B30; }
+
+.status-pulse::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #009B3E;
+  border-radius: 50%;
+  left: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(0,155,62,0.7); }
+  70%  { box-shadow: 0 0 0 6px rgba(0,155,62,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,155,62,0); }
 }

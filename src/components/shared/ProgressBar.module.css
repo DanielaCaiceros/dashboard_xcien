@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.track {
+  flex: 1;
+  background: var(--neutral-600);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.sm .track { height: 3px; }
+.md .track { height: 5px; }
+.lg .track { height: 8px; }
+
+.fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.label {
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-secondary);
+  min-width: 36px;
+  text-align: right;
+}
